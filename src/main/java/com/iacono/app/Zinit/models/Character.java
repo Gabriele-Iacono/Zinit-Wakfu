@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
+@Table(name = "characters") // Specifica il nome della tabella nel database
 @Data
 public class Character {
     @Id
@@ -13,6 +14,6 @@ public class Character {
     private Long id;
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "characterId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Skill> skills;
 }

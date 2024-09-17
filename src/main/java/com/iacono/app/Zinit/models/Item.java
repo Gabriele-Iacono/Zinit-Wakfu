@@ -14,6 +14,7 @@ public class Item {
 
     @ManyToOne
     private Slot slotId;
+    private String name;
 
     @OneToMany
     private List<Stat> stats;
