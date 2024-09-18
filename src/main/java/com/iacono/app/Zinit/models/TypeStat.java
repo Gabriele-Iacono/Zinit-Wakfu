@@ -15,5 +15,5 @@ public class TypeStat {
     private String namestat;
 
     @OneToMany
-    private List<Stat> stats;
+    private List<Stats> stats;
 }

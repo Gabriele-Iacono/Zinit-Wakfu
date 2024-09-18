@@ -17,6 +17,6 @@ public class Item {
     private String name;
 
     @OneToMany
-    private List<Stat> stats;
+    private List<Stats> stats;
 
 }

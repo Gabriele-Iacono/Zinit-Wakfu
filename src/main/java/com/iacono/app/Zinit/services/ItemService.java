@@ -2,6 +2,7 @@ package com.iacono.app.Zinit.services;
 
 import com.iacono.app.Zinit.models.Item;
 import com.iacono.app.Zinit.models.PageDTO;
+import com.iacono.app.Zinit.models.Slot;
 import com.iacono.app.Zinit.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +31,29 @@ public class ItemService {
         pageDTO.setTotalPages(items.getTotalPages());
 
         return pageDTO;
-
     }
+
+    public PageDTO<Item> getItemsBySlot(Slot slot, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        List<Item> items = itemRepository.findBySlotId(slot);
+
+        int totalItems = items.size();
+        int start = Math.min((int) pageable.getOffset(), totalItems);
+        int end = Math.min((start + pageable.getPageSize()), totalItems);
+        List<Item> paginatedItems = items.subList(start, end);
+
+        PageDTO<Item> pageDTO = new PageDTO<>();
+        pageDTO.setContent(paginatedItems);
+        pageDTO.setPageNumber(page);
+        pageDTO.setPageSize(size);
+        pageDTO.setTotalElements(totalItems);
+        pageDTO.setTotalPages((int) Math.ceil((double) totalItems / size));
+
+        return pageDTO;
+    }
+
+    public List<Item> getItemsBySlotName (String slotName) {
+        return itemRepository.findBySlotId_Name(slotName);
+    }
+
 }
