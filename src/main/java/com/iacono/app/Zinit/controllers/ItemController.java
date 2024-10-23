@@ -1,11 +1,10 @@
 package com.iacono.app.Zinit.controllers;
 
 import com.iacono.app.Zinit.models.Item;
-import com.iacono.app.Zinit.models.PageDTO;
+import com.iacono.app.Zinit.Dto.PageDTO;
 import com.iacono.app.Zinit.models.Slot;
 import com.iacono.app.Zinit.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

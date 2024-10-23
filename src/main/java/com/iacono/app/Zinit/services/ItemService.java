@@ -1,7 +1,7 @@
 package com.iacono.app.Zinit.services;
 
 import com.iacono.app.Zinit.models.Item;
-import com.iacono.app.Zinit.models.PageDTO;
+import com.iacono.app.Zinit.Dto.PageDTO;
 import com.iacono.app.Zinit.models.Slot;
 import com.iacono.app.Zinit.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

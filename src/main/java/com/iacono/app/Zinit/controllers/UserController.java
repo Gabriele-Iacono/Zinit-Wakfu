@@ -27,13 +27,14 @@ public class UserController {
             return ResponseEntity.badRequest().body("Username già in uso");
         }
 
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
 
         userRepository.save(user);
 
         return ResponseEntity.ok("User registered successfully");
     }
+
+
+
 }
 

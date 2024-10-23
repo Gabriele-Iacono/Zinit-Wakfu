@@ -21,7 +21,7 @@ public class CharacterController {
 
     // API per ottenere un personaggio specifico
     @GetMapping("/{id}")
-    public ResponseEntity getCharacter (@PathVariable Long id){
+    public ResponseEntity<?> getCharacter (@PathVariable Long id){
         Optional<Character> characterOptional = characterService.getCharacter(id);
         if (characterOptional.isPresent()) {
             return new ResponseEntity<>(characterOptional.get(), HttpStatus.OK);
